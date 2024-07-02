@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>qsi.pocs</groupId>
+    <artifactId>qsi-camel-health-poc</artifactId>
+    <version>1.0.0</version>
+    <name>Spring RabbitMQ Example</name>
+    <description>Example project for Spring Boot with RabbitMQ</description>
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.6</version>
+    </parent>
+    
+    <properties>
+        <java.version>11</java.version>
+        <spring-cloud.version>2021.0.0</spring-cloud.version>
+        <camel.version>3.16.0</camel.version>
+        <!-- <spring-amqp.version>2.3.11.RELEASE</spring-amqp.version> -->
+    </properties>
+    
+    <dependencies>
+        <!-- Spring Boot Starter dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        
+        <!-- Spring AMQP for RabbitMQ -->
+        <!-- <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+            <version>${spring-amqp.version}</version>
+        </dependency> -->
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit -->
+<dependency>
+    <groupId>org.springframework.amqp</groupId>
+    <artifactId>spring-rabbit</artifactId>
+    <version>2.3.11</version>
+</dependency>
+
+        
+        <!-- Camel dependencies -->
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-spring-boot-starter</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-amqp-starter</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        
+        <!-- Logging (optional, use default logging) -->
+        <!-- Spring Boot Starter Log4j2 is included by default in Spring Boot -->
+        
+        <!-- Spring Boot DevTools (optional, for development) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        
+   <!-- Spring Boot Starter Web for RESTful services -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    
+    <!-- Optionally, include additional dependencies for JSON serialization -->
+    <!-- For example, Jackson for JSON processing -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+    </dependency>
+
+        <!-- Test dependencies (excluded in production) -->
+        <!-- Add any test dependencies if required -->
+        
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
